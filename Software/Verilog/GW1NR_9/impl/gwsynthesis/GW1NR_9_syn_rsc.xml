@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="esp32tang_top" Lut="2" T_Register="104(0)" T_Alu="64(0)" T_Lut="178(2)">
+<Module name="esp32tang_top" Lut="2" T_Register="104(0)" T_Alu="64(0)" T_Lut="182(2)">
  <SubModule name="pll_inst"/>
- <SubModule name="breath_led_inst" Register="43" Lut="176" T_Register="104(43)" T_Alu="64(0)" T_Lut="176(176)">
+ <SubModule name="breath_led_inst" Register="43" Lut="180" T_Register="104(43)" T_Alu="64(0)" T_Lut="180(180)">
   <SubModule name="pwm_led_inst" Register="61" Alu="64" T_Register="61(61)" T_Alu="64(64)"/>
  </SubModule>
 </Module>

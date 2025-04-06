@@ -28,9 +28,43 @@ reg[31:0] 	duty;		//duty value
 reg			pwm_flag ;	//duty value plus and minus flag, 0: plus; 1: minus
 
 reg[3:0] 	state;
+reg[3:0] 	nxt_state;
 reg[31:0] 	timer;		//duty adjustment counter
 
 assign pwm_led_out = ~pwm_out ; //led low active
+
+//state machine
+always@(posedge clk or posedge rst)
+begin
+	if(rst == 1'b1)
+		state <= IDLE;
+	else
+	begin
+		state <= nxt_state;
+	end
+end
+
+always@(*)
+begin
+	case(state)
+		IDLE:
+			nxt_state = PWM_PLUS;
+
+		PWM_PLUS:
+			nxt_state = PWM_GAP;
+		
+		PWM_MINUS:
+			nxt_state = PWM_GAP;
+
+		PWM_GAP:
+			nxt_state = (timer >= US_COUNT*100) ? ((pwm_flag) ? PWM_MINUS : PWM_PLUS) : PWM_GAP; //if timer is bigger than 100us, begin to plus or minus duty value
+
+		default:
+			nxt_state = IDLE;			
+	endcase
+end
+
+
 
 always@(posedge clk or posedge rst)
 begin
@@ -40,14 +74,13 @@ begin
 		timer 		<= 32'd0;
 		duty 		<= 32'd0;
 		pwm_flag 	<= 1'b0 ;
-		state 		<= IDLE;
+		
 	end
 	else
 		case(state)
 			IDLE:
 			begin
 				period 		<= LED_PERIOD;
-				state  		<= PWM_PLUS;
 				duty   		<= DUTY_MIN_VALUE;				
 			end
 			PWM_PLUS :
@@ -63,7 +96,6 @@ begin
 					duty   		<= duty + DUTY_STEP ;	
 				end
 				
-				state  		<= PWM_GAP ;
 			end
 			PWM_MINUS :
 			begin
@@ -77,17 +109,11 @@ begin
 					pwm_flag 	<= 1'b1 ;
 					duty   		<= duty - DUTY_STEP ;	
 				end	
-				state  		<= PWM_GAP ;
 			end
 			PWM_GAP:
 			begin
 				if(timer >= US_COUNT*100)      //adjustment gap is 100us
 				begin
-					if (pwm_flag)
-						state <= PWM_MINUS ;
-					else
-						state <= PWM_PLUS ;
-						
 					timer <= 32'd0;
 				end
 				else
@@ -97,7 +123,11 @@ begin
 			end
 			default:
 			begin
-				state <= IDLE;		
+				period 		<= 32'd0;
+				timer 		<= 32'd0;
+				duty   		<= 32'd0;
+				pwm_flag 	<= 1'b0 ;
+	
 			end			
 		endcase
 end
