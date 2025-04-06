@@ -1,0 +1,38 @@
+[
+ {
+  "InstFile" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/esp32tang_top.v",
+  "InstLine" : 1,
+  "InstName" : "esp32tang_top",
+  "ModuleFile" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/esp32tang_top.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "esp32tang_top",
+  "SubInsts" : [
+   {
+    "InstFile" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/esp32tang_top.v",
+    "InstLine" : 12,
+    "InstName" : "pll_inst",
+    "ModuleFile" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/gowin_rpll/gowin_rpll.v",
+    "ModuleLine" : 10,
+    "ModuleName" : "Gowin_rPLL"
+   },
+   {
+    "InstFile" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/esp32tang_top.v",
+    "InstLine" : 23,
+    "InstName" : "breath_led_inst",
+    "ModuleFile" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/breath_led.v",
+    "ModuleLine" : 2,
+    "ModuleName" : "breath_led",
+    "SubInsts" : [
+     {
+      "InstFile" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/breath_led.v",
+      "InstLine" : 109,
+      "InstName" : "pwm_led_inst",
+      "ModuleFile" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/pwm.v",
+      "ModuleLine" : 1,
+      "ModuleName" : "pwm"
+     }
+    ]
+   }
+  ]
+ }
+]

@@ -2,7 +2,19 @@
  "Device" : "GW1NR-9C",
  "Files" : [
   {
-   "Path" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/main.v.v",
+   "Path" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/breath_led.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/esp32tang_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Github/ESP32Tang/ESP32Tang/Software/Verilog/GW1NR_9/src/pwm.v",
    "Type" : "verilog"
   }
  ],
