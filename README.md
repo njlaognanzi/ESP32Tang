@@ -63,7 +63,7 @@ The two devices communicate via **1x SPI bus**, with dedicated interfaces for AD
 
 ## 📐 System Block Diagram
 
-![Image](https://github.com/user-attachments/assets/b7afcbff-79dd-48b6-a5ca-5a4e1bf28a29)
+![image](https://github.com/user-attachments/assets/75d466cc-c911-4c85-a856-ffc64d1197dc)
 
 ---
 
