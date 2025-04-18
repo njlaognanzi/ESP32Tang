@@ -75,6 +75,9 @@ The two devices communicate via **1x SPI bus**, with dedicated interfaces for AD
 - Industrial IoT gateway
 
 ---
+## Diagram View
+![Image](https://github.com/user-attachments/assets/b7afcbff-79dd-48b6-a5ca-5a4e1bf28a29)
+
 
 ## 📎 License
 
